@@ -1,1 +1,1 @@
-This prigram is made just to check hipo to root conversion.
+This program is made just to check hipo to root conversion.

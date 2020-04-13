@@ -1,9 +1,4 @@
-/************************************************************************/
-/*  Created by Nick Tyler*/
-/*	University Of South Carolina*/
-/************************************************************************/
 
-// Only My Includes. All others in main.h
 #include "main.hpp"
 
 using namespace std;

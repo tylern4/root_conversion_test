@@ -1,27 +1,12 @@
-/************************************************************************/
-/*  Created by Nick Tyler*/
-/*	University Of South Carolina*/
-/************************************************************************/
 
 #ifndef FILEHANDELER_H_GUARD
 #define FILEHANDELER_H_GUARD
 #include "TChain.h"
 #include <vector>
 
-// std::vector<int> *run;
-// std::vector<int> *event;
-// std::vector<float> *torus;
-// std::vector<float> *solenoid;
-// std::vector<int> *crate;
-// std::vector<int> *slot;
-// std::vector<int> *channel;
-// std::vector<int> *helicity;
-// std::vector<int> *quartet;
-// std::vector<int> *value;
 std::vector<float> *startTime;
 std::vector<float> *RFTime;
 std::vector<int> *pid;
-// float mc_weight;
 std::vector<float> *p;
 std::vector<float> *p2;
 std::vector<float> *px;
@@ -68,12 +53,6 @@ std::vector<float> *ec_ecout_lu;
 std::vector<float> *ec_ecout_lv;
 std::vector<float> *ec_ecout_lw;
 std::vector<int> *dc_sec;
-// std::vector<float> *dc_px;
-// std::vector<float> *dc_py;
-// std::vector<float> *dc_pz;
-// std::vector<float> *dc_vx;
-// std::vector<float> *dc_vy;
-// std::vector<float> *dc_vz;
 
 std::vector<float> *dc_r1_x;
 std::vector<float> *dc_r1_y;
@@ -82,12 +61,6 @@ std::vector<float> *dc_r2_y;
 std::vector<float> *dc_r3_x;
 std::vector<float> *dc_r3_y;
 
-// std::vector<float> *cvt_px;
-// std::vector<float> *cvt_py;
-// std::vector<float> *cvt_pz;
-// std::vector<float> *cvt_vx;
-// std::vector<float> *cvt_vy;
-// std::vector<float> *cvt_vz;
 std::vector<float> *cc_nphe_tot;
 std::vector<int> *cc_ltcc_sec;
 std::vector<float> *cc_ltcc_nphe;
@@ -183,16 +156,6 @@ namespace filehandeler {
 void getBranches(TTree *myTree) {
   myTree->SetBranchStatus("*", 0);
 
-  // myTree->SetBranchAddress("run", &run);
-  // myTree->SetBranchAddress("event", &event);
-  // myTree->SetBranchAddress("torus", &torus);
-  // myTree->SetBranchAddress("solenoid", &solenoid);
-  // myTree->SetBranchAddress("crate", &crate);
-  // myTree->SetBranchAddress("slot", &slot);
-  // myTree->SetBranchAddress("channel", &channel);
-  // myTree->SetBranchAddress("helicity", &helicity);
-  // myTree->SetBranchAddress("quartet", &quartet);
-  // myTree->SetBranchAddress("value", &value);
   myTree->SetBranchAddress("startTime", &startTime);
   myTree->SetBranchAddress("RFTime", &RFTime);
   myTree->SetBranchAddress("pid", &pid);
