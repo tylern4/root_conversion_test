@@ -1,0 +1,6 @@
+[submodule "hipo"]
+	path = hipo
+	url = https://github.com/gavalian/hipo.git
+[submodule "lz4"]
+	path = lz4
+	url = https://github.com/lz4/lz4.git
