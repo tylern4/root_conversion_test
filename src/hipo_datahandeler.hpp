@@ -19,6 +19,8 @@
 void datahandeler(std::string fin, std::string fout) {
   TFile* out = new TFile(fout.c_str(), "RECREATE");
 
+  auto run_num = fin.substr(fin.find("00") + 2).substr(0, 4);
+
   // Load chain from branch h10
   auto reader = std::make_shared<hipo::reader>();
   reader->open(fin.c_str());
@@ -33,14 +35,23 @@ void datahandeler(std::string fin, std::string fout) {
   TH1F*  h2         = new TH1F("h2", "Electron Px", 500, -5, 5);
   TH1F*  h3         = new TH1F("h3", "FTOF 1B Energy", 250, 0, 50);
   size_t num_events = 0;
+  size_t num_cut    = 0;
   while (reader->next()) {
 
     reader->read(*hipo_event);
     hipo_event->getStructure(*rec_Particle);
     hipo_event->getStructure(*rec_Scintillator);
 
+    num_events++;
+    bool cut = true;
+    cut &= rec_Particle->getInt("pid", 0) == 11;
+    cut &= abs(rec_Particle->getInt("status", 0)) >= 2000;
+    cut &= abs(rec_Particle->getInt("status", 0)) < 4000;
+
+    if (cut)
+      num_cut++;
+
     if (rec_Particle->getRows() > 0) { // cut # 1  (gpart > 0).
-      num_events++;
 
       // Then to fill
       // If particle id at 0 is 11 fill in the histogram h2 with px.
@@ -72,5 +83,7 @@ void datahandeler(std::string fin, std::string fout) {
   h2->Write();
   h3->Write();
   out->Close();
+
+  std::cout << "=> r" << run_num << ": N1 = " << num_events << " N2 = " << num_cut << std::endl;
 }
 #endif

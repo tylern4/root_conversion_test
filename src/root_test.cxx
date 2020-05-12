@@ -9,10 +9,9 @@ int main(int argc, char** argv) {
   } else if (argc == 3) {
     std::string infilename  = argv[1];
     std::string outfilename = argv[2];
-    // std::cerr << RED << "Running SinglePi: \n";
-    // SinglePi(infilename, outfilename);
+
     datahandeler(infilename, outfilename);
-    // datahandeler2(infilename);
+
     std::cerr << RESET << std::endl;
   } else {
     std::cerr << RED << "Error: \n";

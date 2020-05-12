@@ -1,12 +1,13 @@
 package validate;
 
+import org.jlab.groot.data.H1F;
+import org.jlab.groot.ui.TCanvas;
 import org.jlab.jnp.hipo4.data.Bank;
 import org.jlab.jnp.hipo4.data.Event;
 import org.jlab.jnp.hipo4.data.SchemaFactory;
 import org.jlab.jnp.hipo4.io.HipoReader;
 
-import org.jlab.groot.data.H1F;
-import org.jlab.groot.ui.TCanvas;
+import org.jlab.jroot.ROOTFile;
 
 public class validate {
     public static void main(final String[] args) {
@@ -69,7 +70,7 @@ public class validate {
 
         }
 
-        can.save("validate.pdf");
+        can.save("validate.png");
         System.exit(0);
     }
 }

@@ -43,7 +43,7 @@ void datahandeler(std::string fin, std::string fout) {
       // Then to fill
       // If particle id at 0 is 11 fill in the histogram h2 with px.
 
-      if (pid->at(0) == 11)
+      if (pid->at(0) == 11 && !std::isnan(px->at(0)))
         h2->Fill(px->at(0));
 
       // Then looping over particles 1 to the number of particles :
